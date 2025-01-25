@@ -1,0 +1,14 @@
+__pycache__/
+env/
+.env
+.vscode/
+myvenv/
+venv
+.idea
+.venv
+.DS_Store
+*.ipynb
+backend/.env
+backend/node_modules
+backend/firebase/firebase-key.json
+custom-dashboard/node_modules
