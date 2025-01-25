@@ -2,19 +2,20 @@ const {getFirestore, collection, getDocs, doc, setDoc, updateDoc, getDoc } = req
 const { initializeApp } = require('firebase/app');
 const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');
-
+// Initialize Firebase
+require('dotenv').config();
 // const db = require('../firebase/firebaseConfig');
 
 // console.log('Database initialized:', db);
-// Initialize Firebase
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBAC5NTO0XHyoFbLcWwfkaeZYcaA_aVswI",
-  authDomain: "magic-dossier-9b03d.firebaseapp.com",
-  databaseURL: "https://magic-dossier-9b03d-default-rtdb.firebaseio.com",
-  projectId: "magic-dossier-9b03d",
-  storageBucket: "magic-dossier-9b03d.firebasestorage.app",
-  messagingSenderId: "577437054886",
-  appId: "1:577437054886:web:9ec365eae2f82b7d388167"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DATABASE_URL,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
