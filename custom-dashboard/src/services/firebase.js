@@ -2,9 +2,6 @@ const {getFirestore, collection, getDoc, doc, setDoc} = require('firebase/firest
 const { initializeApp } = require('firebase/app');
 const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
@@ -32,4 +29,4 @@ async function updateDashboardData(thread_id, newData) {
   const dashboardRef = doc(db, "dashboard", thread_id);
   await setDoc(dashboardRef, { dashboardData: newData }, { merge: false });
 }
-module.exports = { getDataByThreadId, updateDashboardData };
+export { getDataByThreadId, updateDashboardData };
