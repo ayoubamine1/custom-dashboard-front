@@ -2,12 +2,10 @@ const {getFirestore, collection, getDocs, doc, setDoc, updateDoc, getDoc } = req
 const { initializeApp } = require('firebase/app');
 const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');
-// Initialize Firebase
 require('dotenv').config();
-// const db = require('../firebase/firebaseConfig');
 
-// console.log('Database initialized:', db);
 
+BASE_API = process.env.BASE_API
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.AUTH_DOMAIN,
@@ -23,7 +21,7 @@ const db = getFirestore(app);
 // Mock API logic to simulate generating dashboard data
 const generateDashboardData = async (query, threadId) => {
   try {
-    const response = await axios.post('http://127.0.0.1:8000/generate-graphs-data', {
+    const response = await axios.post(`${BASE_API}/generate-graphs-data`, {
       question: query,
       thread_id: threadId
     });
