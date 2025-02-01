@@ -9,6 +9,7 @@ venv
 .DS_Store
 *.ipynb
 backend/.env
+custom-dashboard/.env
 backend/node_modules
 backend/firebase/firebase-key.json
 custom-dashboard/node_modules
