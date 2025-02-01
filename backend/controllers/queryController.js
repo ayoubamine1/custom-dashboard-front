@@ -1,11 +1,11 @@
-const {getFirestore, collection, getDocs, doc, setDoc, updateDoc, getDoc } = require('firebase/firestore');
-const { initializeApp } = require('firebase/app');
-const axios = require('axios');
-const { v4: uuidv4 } = require('uuid');
-require('dotenv').config();
+import { getFirestore, collection, doc, setDoc, updateDoc, getDoc } from 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
+require('dotenv').config()
 
 
-BASE_API = process.env.BASE_API
+const BASE_API = process.env.BASE_API
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.AUTH_DOMAIN,
@@ -127,4 +127,4 @@ const handleQuery = async (req, res) => {
   }
 };
 
-module.exports = { handleQuery };
+export { handleQuery };
